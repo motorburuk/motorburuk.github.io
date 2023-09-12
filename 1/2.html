@@ -1,8 +1,7 @@
 <html>
 
 <head>
-    <meta name="referrer" content="no-referrer" />
-	<title>A S T R O • W A R N A</title>
+	<meta name="referrer" content="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.6/shaka-player.ui.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.6/controls.min.css" crossorigin="anonymous" />
 </script>
@@ -17,7 +16,7 @@
         </div>
     </center>
     <script>
-        const manifestUri = "https://linear05-playback.sooka.my/CH1/masterCH1.mpd";
+        const manifestUri = "https://linears-playback.astro.com.my/vsg/413QnAfu-7fdWp4rP359v0jN4jwOViQScR2EuxX60EeX8=OXMP/dash-wv/jitp-dashisowm/2700/default_primary.mpd";
         async function init() {
             const video = document.getElementById('video');
             const ui = video['ui'];
@@ -28,7 +27,7 @@
             player.configure({
                 drm: {
                     "clearKeys": {
-                        '69796371dc4e457d98fa2b025eabfc94': '6e171dc36e2356c24e4e59b19bc98fc5'
+                        '84bf9ad6848be7db20f9d16823deef10': '654f2d25a5bfb27c9e5ae0852584a166'
                     }
                 }
             });
@@ -39,12 +38,7 @@
                 console.log('The video has now been loaded!');
             } catch (error) {
                 onPlayerError(error);
-            }
-            player.getNetworkingEngine().registerRequestFilter(function(type, request) {
-                if (type == shaka.net.NetworkingEngine.RequestType.SEGMENT) {
-                    request.headers['authorization'] = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3bXZlciI6Miwid21pZGZtdCI6ImFzY2lpIiwid21pZHR5cCI6MSwid21rZXl2ZXIiOjEsIndtaWRsZW4iOjUxMiwid21pZCI6Ik9HTXlOVEl4TW1JdFpUYzVZUzAwTUdJekxXSTFOak10WkdSaVlqSXdNMkl5WXpabSIsIndtb3BpZCI6MzIsImV4cCI6MTY5NDc0OTUxNSwiaWF0IjoxNjk0MTQ1NTE1fQ.xB9Po-CvKqr-7fgt3qJr-tS1iwhzu5QbjxBk6NX6-tY';                }
-            });
-        }
+        }}
 
         function onPlayerErrorEvent(errorEvent) {
             onPlayerError(event.detail);
