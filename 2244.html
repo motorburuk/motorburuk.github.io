@@ -1,7 +1,8 @@
 <html>
 
 <head>
-    <meta name="referrer" content="no-referrer" />
+<title>Walaun B0D0</title>
+    <meta name="referrer" content="no-referrer"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.6/shaka-player.ui.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.3.6/controls.min.css" crossorigin="anonymous" />
 </script>
@@ -16,7 +17,7 @@
         </div>
     </center>
     <script>
-        const manifestUri = "https://d1fk7kbmz4il3.cloudfront.net/CH3/masterCH3.mpd";
+        const manifestUri = "https://unifi-live01.secureswiftcontent.com/UnifiHD/live03.mpd";
         async function init() {
             const video = document.getElementById('video');
             const ui = video['ui'];
@@ -27,7 +28,7 @@
             player.configure({
                 drm: {
                     "clearKeys": {
-                        'b6e60ca0d28e8f97395f07b4e2e53a10': '0f0ea6c3543c29d7f513eb886eb74f88'
+                        '3afe30ee4ea24a67fe5a2ef06e83db0b': '27a2f71d87bf5eb105af096fb6605d97'
                     }
                 }
             });
@@ -38,12 +39,7 @@
                 console.log('The video has now been loaded!');
             } catch (error) {
                 onPlayerError(error);
-            }
-            player.getNetworkingEngine().registerRequestFilter(function(type, request) {
-                if (type == shaka.net.NetworkingEngine.RequestType.SEGMENT) {
-                    request.headers['authorization'] = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3bXZlciI6Miwid21pZGZtdCI6ImFzY2lpIiwid21pZHR5cCI6MSwid21rZXl2ZXIiOjEsIndtaWRsZW4iOjUxMiwid21pZCI6Ik9HTXlOVEl4TW1JdFpUYzVZUzAwTUdJekxXSTFOak10WkdSaVlqSXdNMkl5WXpabSIsIndtb3BpZCI6MzIsImV4cCI6MTY5NDc0OTUxNSwiaWF0IjoxNjk0MTQ1NTE1fQ.xB9Po-CvKqr-7fgt3qJr-tS1iwhzu5QbjxBk6NX6-tY';                }
-            });
-        }
+        }}
 
         function onPlayerErrorEvent(errorEvent) {
             onPlayerError(event.detail);
